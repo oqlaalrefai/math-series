@@ -1,21 +1,55 @@
 from math_series import __version__
-from math_series.series import sum
-from math_series.series import fiboseries
-from math_series.series import lucasSeries
+from math_series.series import sum_series,lucas,fibonacci
+ 
 def test_version():
     assert __version__ == '0.1.0'
 
-def test_febonacci():
-    expected = 1
-    actual = fiboseries(1)
-    assert actual == expected
+def test_fibonacci_0():
+    excepted=0
+    actual=fibonacci(0)
+    assert excepted==actual
 
-def test_sum():
-    expected=3
-    actual=sum(1,0,3)
-    assert actual == expected
+def test_fibonacci_1():
+    excepted=1
+    actual=fibonacci(1)
+    assert excepted==actual
 
-def test_lucasSeries():
-    expected=4
-    actual=lucasSeries(3)
-    assert actual == expected
+def test_fibonacci_n():
+
+    for num in range(2,10):
+        number=fibonacci(num-1) + fibonacci(num-2)
+
+    excepted=number
+    actual=fibonacci(num)
+    assert excepted==actual
+
+def test_lucas_0():
+    excepted=2
+    actual=lucas(0)
+    assert excepted==actual
+
+def test_lucas_1():
+    excepted=1
+    actual=lucas(1)
+    assert excepted==actual
+
+
+def test_lucas_n():
+
+    for num in range(2,10):
+        number=lucas(num-1) + lucas(num-2)
+
+    excepted=number
+    actual=lucas(num)
+    assert excepted==actual
+
+
+def test_sum_series_0():
+    excepted=0
+    actual=sum_series(0)
+    assert excepted==actual
+
+def test_sum_series_4():
+    excepted=3
+    actual=sum_series(4)
+    assert excepted==actual
